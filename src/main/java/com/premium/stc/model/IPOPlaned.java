@@ -16,7 +16,7 @@ public class IPOPlaned {
 	private int companyCode;
 	private String companyName;
 	
-	private int stockExchangeId;
+	private String stockExchange;
 	private double pricePerShare;
 	private int totalNumberOfShares;
 	private Date openDateTime;
@@ -39,14 +39,14 @@ public class IPOPlaned {
 		this.companyCode = companyCode;
 	}
 
-	public int getStockExchangeId() {
-		return stockExchangeId;
+		
+	public String getStockExchange() {
+		return stockExchange;
+	}
+	public void setStockExchange(String stockExchange) {
+		this.stockExchange = stockExchange;
 	}
 
-	public void setStockExchangeId(int stockExchangeId) {
-		this.stockExchangeId = stockExchangeId;
-	}
-	
 	public String getCompanyName() {
 		return companyName;
 	}

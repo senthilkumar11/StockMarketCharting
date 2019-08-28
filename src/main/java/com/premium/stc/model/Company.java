@@ -19,7 +19,7 @@ public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Size(min=1,message="Required")
+	
 	private String companyName;
 	private BigDecimal turnOver;
 	private String ceo;
@@ -27,11 +27,11 @@ public class Company {
 	
 	private int sectorId;
 	private String briefWriteUp;
-	private int stockPriceId;
+
 	
 	
 	public Company(int id, String companyName, BigDecimal turnOver, String ceo, String boardOfDirectors,
-			int sectorId, String briefWriteUp, int stockPriceId) {
+			int sectorId, String briefWriteUp) {
 		super();
 		this.id = id;
 		this.companyName = companyName;
@@ -40,7 +40,7 @@ public class Company {
 		this.boardOfDirectors = boardOfDirectors;
 		this.sectorId = sectorId;
 		this.briefWriteUp = briefWriteUp;
-		this.stockPriceId = stockPriceId;
+		
 	}
 	
 	public Company() {
@@ -91,21 +91,13 @@ public class Company {
 	public void setBriefWriteUp(String briefWriteUp) {
 		this.briefWriteUp = briefWriteUp;
 	}
-	
 
-	public int getStockPriceId() {
-		return stockPriceId;
-	}
-
-	public void setStockPriceId(int stockPriceId) {
-		this.stockPriceId = stockPriceId;
-	}
 
 	@Override
 	public String toString() {
 		return "Company [companyCode=" + id  + ", companyName=" + companyName + ", turnOver=" + turnOver
 				+ ", ceo=" + ceo + ", boardOfDirectors=" + boardOfDirectors + ", sectorId=" + sectorId
-				+ ", briefWriteUp=" + briefWriteUp + ", stockCode=" + stockPriceId + "]";
+				+ ", briefWriteUp=" + briefWriteUp +  "]";
 	}
 	
 	

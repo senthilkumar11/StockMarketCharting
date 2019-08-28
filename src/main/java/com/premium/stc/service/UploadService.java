@@ -77,10 +77,11 @@ public class UploadService {
 						stockPrice.setDate(df.parse(dateTime));
 						break;
 					}
-
+					
 				}
 				if (flag == 1)
 					break;
+				System.out.println(stockPrice);
 //				stockPriceDao.save(stockPrice);
 				list.add(stockPrice);
 

@@ -7,44 +7,37 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.premium.stc.model.Login;
 import com.premium.stc.model.User;
 import com.premium.stc.service.*;
-@Controller
+@CrossOrigin(origins = "http://localhost:4201")
+@RestController
 public class UserController{
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(path="/registerUser", method = RequestMethod.GET)
-	public String registerUser(ModelMap model) throws Exception {
-		User user=new User();
-		model.addAttribute("user1",user);
-		return "userRegistration";
-	}
-	@RequestMapping(path="/registerUser", method = RequestMethod.POST)
-	public String register(User user,ModelMap model)
+	@PostMapping("/registeruser")
+	public void registerUser(@RequestBody User user) throws Exception
 	{
-		System.out.println(user);
-		
-		try {
-			userService.registerUser(user);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return "redirect:login";
+		user.setUserType("USER");
+		userService.registerUser(user);
 	}
+	
 
 	public User updateUser(User user) throws Exception {
 	
 		return userService.updateUser(user);
 	}
+	@GetMapping("/userlist")
 	public List<User> getUserList() {
-		// TODO Auto-generated method stub
 		return userService.getUserList();
 	}
 	

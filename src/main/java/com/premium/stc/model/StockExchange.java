@@ -4,6 +4,8 @@ import java.util.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
@@ -11,6 +13,7 @@ import javax.persistence.Table;
 public class StockExchange {
 	@Id
 	@Column(name="stockexchange_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name="stockexchange_name")
 	private String name;

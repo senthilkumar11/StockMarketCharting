@@ -1,5 +1,7 @@
 package com.premium.stc.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,10 @@ public class IPOServiceImpl implements IPOservice {
 	public void insertIPO(IPOPlaned ipoPlaned) throws Exception {
 		ipoPlanedDao.save(ipoPlaned);
 		
+	}
+	public List<IPOPlaned> getAllIpo() throws Exception {
+	
+		return ipoPlanedDao.findAll();
 	}
 
 }

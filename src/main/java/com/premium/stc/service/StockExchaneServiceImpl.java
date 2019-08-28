@@ -16,5 +16,10 @@ public class StockExchaneServiceImpl implements StockExchangeService {
 	public List<StockExchange> getStockList() {
 				return stockExchangeDao.findAll();
 	}
+	@Override
+	public void insertStockExchange(StockExchange stockExchange) throws Exception {
+	stockExchangeDao.save(stockExchange);
+		
+	}
 
 }

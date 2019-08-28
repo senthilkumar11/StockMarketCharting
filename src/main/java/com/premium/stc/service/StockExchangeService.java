@@ -6,4 +6,5 @@ import com.premium.stc.model.StockExchange;
 
 public interface StockExchangeService {
 public List<StockExchange> getStockList();
+public void insertStockExchange(StockExchange stockExchange)throws Exception;
 }
